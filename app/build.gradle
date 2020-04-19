@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+
+    defaultConfig {
+        applicationId "au.com.tilbrook.android.rxkotlin"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    implementation "com.android.support:appcompat-v7:$support_version"
+
+    implementation 'io.reactivex:rxandroid:1.2.0'
+    // Because RxAndroid releases are few and far between, it is recommended you also
+    // explicitly depend on RxJava's latest version for bug fixes and new features.
+    implementation 'io.reactivex:rxjava:1.1.5'
+    implementation 'io.reactivex:rxjava-math:1.0.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    implementation 'io.reactivex:rxkotlin:0.55.0'
+
+    implementation 'com.jakewharton.timber:timber:4.1.2'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.squareup.okhttp3:okhttp:3.2.0'
+
+    implementation 'org.jetbrains.anko:anko-sdk15:0.8.3' // sdk19, sdk21, sdk23 are also available
+    implementation 'org.jetbrains.anko:anko-support-v4:0.8.3' // In case you need support-v4 bindings
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+}
+buildscript {
+    ext.kotlin_version = '1.2.51'
+    ext.support_version = '26.0.0'
+    ext.retrofit_version = '2.3.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}
