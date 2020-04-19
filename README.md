@@ -1,18 +1,7 @@
 Learning RxKotlin for Android by example
 ==============
 
-This is a rewrite of [RxJava-Android-Samples by Kaushik Gopal](https://github.com/kaushikgopal/RxJava-Android-Samples) in Kotlin
-
-Just like Kaushik, RxJava samples. This repository is filled with useful real-world examples of using RxJava with Android. [It's usually in a constant state of "Work in Progress" (WIP)](http://nerds.weddingpartyapp.com/tech/2014/09/15/learning-rxjava-with-android-by-example/).
-
-Kaushik also gave a talk at the San Francisco Android User Group about warming up to RxJava. Here is a link to the [video and slides](https://newcircle.com/s/post/1744/2015/06/29/learning-rxjava-for-android-by-example).
-
-# Why a new repository and not a fork
-
-I wanted to have the freedom to Kotlin-ize the examples. I also wanted to replace ButterKnife and xml
-layouts with Anko. Lastly it was a good opportunity to get to know the RxJava examples in more detail and also learn both Kotlin and Anko
-
-I will try and keep in sync with the examples in the [Java repo](https://github.com/kaushikgopal/RxJava-Android-Samples)
+Lastly it was a good opportunity to get to know the RxJava examples in more detail and also learn both Kotlin.
 
 ## Examples:
 
@@ -83,8 +72,6 @@ Have a look at the accompanying blog posts for details on this demo:
 3. [share/publish/refcount](http://nerds.weddingpartyapp.com/tech/2015/01/21/rxjava-share-publish-refcount-and-all-that-jazz/)
 
 ### Form validation - using [`.combineLatest`](http://reactivex.io/documentation/operators/combinelatest.html)
-
-Thanks to Dan Lew for giving me this idea in the [fragmented podcast - episode #5](http://fragmentedpodcast.com/episodes/4/) (around the 4:30 mark).
 
 `.combineLatest` allows you to monitor the state of multiple observables at once compactly at a single location. The example demonstrated shows how you can use `.combineLatest` to validate a basic form. There are 3 primary inputs for this form to be considered "valid" (an email, a password and a number). The form will turn valid (the text below turns blue :P) once all the inputs are valid. If they are not, an error is shown against the invalid inputs.
 
@@ -168,18 +155,3 @@ b. Optimized pagination
 I try to ensure the examples are not overly contrived but reflect a real-world usecase. If you have similar useful examples demonstrating the use of RxJava, feel free to send in a pull request.
 
 I'm wrapping my head around RxJava too so if you feel there's a better way of doing one of the examples mentioned above, open up an issue explaining how. Even better, send a pull request.
-
-## License
-
-Licensed under the Apache License, Version 2.0 (the "License").
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-You agree that all contributions to this repository, in the form of fixes, pull-requests, new examples etc. follow the above-mentioned license.
